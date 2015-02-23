@@ -68,13 +68,13 @@
     function getSelectedPosition() {
         var i = document.getElementById("adPosition").selectedIndex;
         var items = document.getElementById("adPosition").options;
-        return 5; //8 - Bottom Center, 2 - Top Center, 5 - Center
+        return 8; //8 - Bottom Center, 2 - Top Center, 5 - Center
     }
 
     function createSelectedBanner() {
     	var overlap = document.getElementById('overlap').checked;
         var offsetTopBar = document.getElementById('offsetTopBar').checked;
-        AdMob.createBanner( {adId:admobid.banner, adSize: getSelectedAdSize(), position:getSelectedPosition()} );
+        AdMob.createBanner( {adId:admobid.banner, offsetTopBar:offsetTopBar, overlap:overlap, adSize: getSelectedAdSize(), position:getSelectedPosition()} );
     }
 
     //function createBannerOfGivenSize() {
