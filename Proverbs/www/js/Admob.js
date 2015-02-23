@@ -79,26 +79,26 @@
         AdMob.createBanner( {adId:admobid.banner, offsetTopBar:offsetTopBar, overlap:overlap, adSize: getSelectedAdSize(), position:getSelectedPosition()} );
     }
 
-    //function createBannerOfGivenSize() {
-    //    var w = document.getElementById('w').value;
-    //    var h = document.getElementById('h').value;
-    //    
-    //    AdMob.createBanner( {adId:admobid.banner,
-    //                       adSize:'CUSTOM', width:w, height:h,
-    //                       position:getSelectedPosition()} );
-    //}
-    //function showBannerAtSelectedPosition() {
-    //    AdMob.showBanner( getSelectedPosition() );
-    //}
-    //function showBannerAtGivenXY() {
-    //    var x = document.getElementById('x').value;
-    //    var y = document.getElementById('y').value;
-    //    AdMob.showBannerAtXY(x, y);
-    //}
-    //function prepareInterstitial() {
-    //    var autoshow = document.getElementById('autoshow').checked;
-    //    AdMob.prepareInterstitial({adId:admobid.interstitial, autoShow:autoshow});
-    //}
+    function createBannerOfGivenSize() {
+        var w = document.getElementById('w').value;
+        var h = document.getElementById('h').value;
+        
+        AdMob.createBanner( {adId:admobid.banner,
+                           adSize:'CUSTOM', width:w, height:h,
+                           position:getSelectedPosition()} );
+    }
+    function showBannerAtSelectedPosition() {
+        AdMob.showBanner( getSelectedPosition() );
+    }
+    function showBannerAtGivenXY() {
+        var x = document.getElementById('x').value;
+        var y = document.getElementById('y').value;
+        AdMob.showBannerAtXY(x, y);
+    }
+    function prepareInterstitial() {
+        var autoshow = document.getElementById('autoshow').checked;
+        AdMob.prepareInterstitial({adId:admobid.interstitial, autoShow:autoshow});
+    }
     function onResize(){
         var s = document.getElementById('sizeinfo');
         s.innerHTML = "web view: " + window.innerWidth + " x " + window.innerHeight;

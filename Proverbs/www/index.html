@@ -54,9 +54,14 @@ button {
 			<option value='SKYSCRAPER'>SKYSCRAPER</option>
 		</select><br /> <input type='checkbox' id='overlap' />overlap<br/>
          <input type='checkbox' id='offsetTopBar' />offsetTopBar<br/>
+		<button onclick="createSelectedBanner();">create</button>
 		<br /> Custom Size: (<input id='w' type='text' size=3 /> x <input
 			id='h' type='text' size=3>)
-		
+		<button onclick="createBannerOfGivenSize();">create</button>
+		<br />
+
+		<button onclick="AdMob.removeBanner();">remove banner</button>
+
 		<hr />
 		<select id="adPosition">
 			<option value='1'>Top Left</option>
@@ -69,12 +74,19 @@ button {
 			<option value='8' selected>Bottom Center</option>
 			<option value='9'>Bottom Right</option>
 		</select>
+		<button onclick="showBannerAtSelectedPosition();">show</button>
 		<br /> (<input id='x' type='text' size=3 />,<input id='y'
 			type='text' size=3>)
+		<button onclick="showBannerAtGivenXY();">show At XY</button>
+		<br />
+
+		<button onclick="AdMob.hideBanner();">hide banner</button>
 		<hr />
 
 		<p>Interstitial</p>
 		<input type='checkbox' id='autoshow' checked />auto show when ready<br />
+		<button onclick="prepareInterstitial();">Prepare</button>
+		<button onclick="AdMob.showInterstitial();">Show</button>
 		<div id='sizeinfo'></div>
 	</div>
 </body>
