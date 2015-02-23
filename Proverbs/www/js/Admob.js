@@ -62,13 +62,15 @@
     function getSelectedAdSize() {
         var i = document.getElementById("adSize").selectedIndex;
         var items = document.getElementById("adSize").options;
-        return 'BANNER';
+        alert(items[i].value);
+        return items[i].value;
     }
 
     function getSelectedPosition() {
         var i = document.getElementById("adPosition").selectedIndex;
         var items = document.getElementById("adPosition").options;
-        return 8; //8 - Bottom Center, 2 - Top Center, 5 - Center
+        alert(parseInt(items[i].value));
+        return parseInt( items[i].value ); //8 - Bottom Center, 2 - Top Center, 5 - Center
     }
 
     function createSelectedBanner() {
