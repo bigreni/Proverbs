@@ -29,10 +29,10 @@
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <script type="text/javascript" src="cordova.js"></script>
         <!--<script type="text/javascript" src="js/index.js"></script>-->
-
+        <script type="text/javascript" src="js/Admob.js"></script>
         <title>Proverbs</title>
     </head>
-    <body>
+    <body onload="onLoad()" onresize="onResize()">
         <div>
             <span>Select a language</span>
             <a href="Languages/English.html" class="langOption"><h1 class="selectLanguage">English</h1></a>
@@ -44,6 +44,6 @@
         <script type="text/javascript">
             app.initialize();
         </script>
-        <script type="text/javascript" src="js/Admob.js"></script>
+            
     </body>
 </html>
