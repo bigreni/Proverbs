@@ -32,11 +32,11 @@
             // width: integer, // valid when set adSize 'CUSTOM'
             // height: integer, // valid when set adSize 'CUSTOM'
             position: AdMob.AD_POSITION.BOTTOM_CENTER,
-            // offsetTopBar: false, // avoid overlapped by status bar, for iOS7+
+            offsetTopBar: false, // avoid overlapped by status bar, for iOS7+
             bgColor: 'black', // color name, or '#RRGGBB'
             // x: integer,		// valid when set position to 0 / POS_XY
             // y: integer,		// valid when set position to 0 / POS_XY
-            isTesting: false//, // set to true, to receiving test ad for testing purpose
+            isTesting: true//, // set to true, to receiving test ad for testing purpose
             // autoShow: true // auto show interstitial ad when loaded, set to false if prepare/show
         };
         AdMob.setOptions( defaultOptions );
@@ -62,38 +62,41 @@
     function getSelectedAdSize() {
         var i = document.getElementById("adSize").selectedIndex;
         var items = document.getElementById("adSize").options;
-        return items[i].value;
+        return 'BANNER';
     }
+
     function getSelectedPosition() {
         var i = document.getElementById("adPosition").selectedIndex;
         var items = document.getElementById("adPosition").options;
-        return parseInt( items[i].value );
+        return 5; //8 - Bottom Center, 2 - Top Center, 5 - Center
     }
+
     function createSelectedBanner() {
     	var overlap = document.getElementById('overlap').checked;
         var offsetTopBar = document.getElementById('offsetTopBar').checked;
-        AdMob.createBanner( {adId:admobid.banner, overlap:overlap, offsetTopBar:offsetTopBar, adSize: getSelectedAdSize(), position:getSelectedPosition()} );
+        AdMob.createBanner( {adId:admobid.banner, adSize: getSelectedAdSize(), position:getSelectedPosition()} );
     }
-    function createBannerOfGivenSize() {
-        var w = document.getElementById('w').value;
-        var h = document.getElementById('h').value;
-        
-        AdMob.createBanner( {adId:admobid.banner,
-                           adSize:'CUSTOM', width:w, height:h,
-                           position:getSelectedPosition()} );
-    }
-    function showBannerAtSelectedPosition() {
-        AdMob.showBanner( getSelectedPosition() );
-    }
-    function showBannerAtGivenXY() {
-        var x = document.getElementById('x').value;
-        var y = document.getElementById('y').value;
-        AdMob.showBannerAtXY(x, y);
-    }
-    function prepareInterstitial() {
-        var autoshow = document.getElementById('autoshow').checked;
-        AdMob.prepareInterstitial({adId:admobid.interstitial, autoShow:autoshow});
-    }
+
+    //function createBannerOfGivenSize() {
+    //    var w = document.getElementById('w').value;
+    //    var h = document.getElementById('h').value;
+    //    
+    //    AdMob.createBanner( {adId:admobid.banner,
+    //                       adSize:'CUSTOM', width:w, height:h,
+    //                       position:getSelectedPosition()} );
+    //}
+    //function showBannerAtSelectedPosition() {
+    //    AdMob.showBanner( getSelectedPosition() );
+    //}
+    //function showBannerAtGivenXY() {
+    //    var x = document.getElementById('x').value;
+    //    var y = document.getElementById('y').value;
+    //    AdMob.showBannerAtXY(x, y);
+    //}
+    //function prepareInterstitial() {
+    //    var autoshow = document.getElementById('autoshow').checked;
+    //    AdMob.prepareInterstitial({adId:admobid.interstitial, autoShow:autoshow});
+    //}
     function onResize(){
         var s = document.getElementById('sizeinfo');
         s.innerHTML = "web view: " + window.innerWidth + " x " + window.innerHeight;
